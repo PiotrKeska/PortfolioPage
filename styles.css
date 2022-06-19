@@ -1,0 +1,442 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+
+}
+
+/* homeView styles */
+
+.homeView {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 1s;
+    
+}
+
+/* styles for homeView while menu is activated */
+.homeView.hide{
+    filter: blur(4px);
+}
+img.homeBg1,
+img.homeBg2,
+img.homeBg3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: slider 30s infinite linear;
+}
+
+/* styles for pause animation while menu is activated */
+.homeBg1.hide,
+.homeBg2.hide,
+.homeBg3.hide{
+    animation-play-state: paused;
+}
+
+.homeView img:nth-child(2){
+    animation-delay: 10s;
+}
+
+.homeView img:nth-child(3){
+    animation-delay: 20s;
+}
+.homeView .fa-bars{
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    font-size: 3em;
+    cursor: pointer;
+    color: white;
+    transition: .4s;
+}
+
+.homeView .fa-bars:hover{
+    transform: scale(1.2);
+    color: lightyellow;
+}
+
+.homeView .homeQuote,
+.homeView .homeQuoteAuthor
+{
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    height: 60px;
+    width: 100%;
+    transform: translateX(-50%);
+    line-height: 60px;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.homeView .homeQuoteAuthor{
+    top: 76%;
+}
+
+
+@keyframes slider {
+0%{
+    opacity: 0;
+}
+5%{
+    opacity: 1;
+}
+33.33%{
+    opacity: 1;
+}
+38%{
+    opacity: 0;
+}
+100%{
+    opacity: 0;
+}
+    
+}
+
+/* end of homeView Styles */
+
+/* start of menu styles */
+.menu{
+    position: absolute;
+    top:0;
+    left: 100%;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    transition: 1s;
+}
+/* styles for menu to slide into first page */
+.menu.activate{
+    left: 0;
+}
+
+.menuContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 60%;
+    background-color: rgba(176, 196, 222, .5);
+    /* start display Flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.menuContainer a{
+    display: block;
+    font-size: 3em;
+    text-decoration: none;
+    color: white;
+}
+
+/* effect after mouseover an a */
+.menuContainer a:hover{
+    text-decoration: underline;
+}
+
+.fa-user,
+.fa-lightbulb,
+.fa-mobile-retro,
+.fa-graduation-cap,
+.fa-question{
+    padding-right: 20px;
+}
+
+.menuContainer .fa-arrow-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -50%);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 2px solid lightgreen;
+    background-color: lightgreen;
+    border-radius: 50%;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.menuContainer .linkd,
+.menuContainer .gitH{
+    position: absolute;
+    bottom: 8%;
+    color: white;
+    cursor: pointer;
+    transform: scale(0);
+    transition: 1s;
+
+}
+.menuContainer .linkd .linkdLink,
+.menuContainer .gitH .gitLink{
+    display: block;
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+.menuContainer .linkd{
+    left: 2%;
+}
+
+.menuContainer .gitH{
+    right: 2%;
+}
+
+.menuContainer .linkd .linkdLink:hover,
+.menuContainer .gitH .gitLink:hover{
+    color: lightgreen;
+}
+
+.menuContainer .linkd.active,
+.menuContainer .gitH.active{
+    transform: scale(1);
+}
+/* end of menu styles */
+
+/* start of menuAboutMe styles */
+.menuAboutMe{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 70%;
+    background-color: rgba(119, 136, 153, 1);
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
+/* styles to make active menuAboutMe */
+.menuAboutMe.active{
+    display: block;
+}
+
+.portrait{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+
+}
+.portrait .portraitImg{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -40%) scale(.4);
+}
+
+.portrait p{
+    position: absolute;
+    top: 60%;
+    left: 0;
+    padding: 0 10%;
+    text-align: justify;
+
+}
+
+.portrait .fa-xmark{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -50%);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 2px solid black;
+    background-color: red;
+    border-radius: 50%;
+    font-size: 2em;
+    cursor: pointer;
+}
+/* end of menuAboutMe styles */
+/* start of projects */
+
+.projects{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 70%;
+    background-color: rgba(119, 136, 153, 1);
+    border: 2px solid black;
+    border-radius: 5px;
+    /* set up flexbox on projects */
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/* styles to active projectst menu */
+.projects.active{
+    display: flex;
+}
+.projects div{
+    width: 50%;
+    height: 50%;
+    /* setting flex box on divs  */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects div p{
+    padding: 5% 5% 0 5%;
+    text-align: justify;
+}
+
+.projects .fa-xmark{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -50%);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 2px solid black;
+    background-color: red;
+    border-radius: 50%;
+    font-size: 2em;
+    cursor: pointer;
+}
+/* end projects styles */
+/* start skills styles */
+.skills{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 70%;
+    background-color: rgba(119, 136, 153, 1);
+    border: 2px solid black;
+    border-radius: 5px;
+    /* set up flexbox on projects */
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+/* styles to active skills menu */
+.skills.active{
+    display: flex;
+}
+
+.skills .skill1,
+.skills .skill2,
+.skills .skill3,
+.skills .skill4,
+.skills .skill5{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.skills h1{
+    font-size: 4.5em;
+}
+.skills .levelWrapper{
+    display: flex;
+    padding-left: 3%;
+    align-items: center;
+}
+.skills .full,
+.skills .empty{
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.skills .full{
+    background-color: royalblue;
+}
+
+.skills .skillsXMark{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -50%);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 2px solid black;
+    background-color: red;
+    border-radius: 50%;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.skills .legend{
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+}
+.legend .basic,
+.legend .intermediate,
+.legend .advanced,
+.legend .expert{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.skills .legend .full,
+.skills .legend .empty{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+    transform: translateY(35%);
+}
+
+/* footer styles */
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 10px;
+    background-color: black;
+    color: white;
+}
+
+

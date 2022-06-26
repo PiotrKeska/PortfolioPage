@@ -13,6 +13,10 @@ body{
     overflow: hidden;
 
 }
+a{
+    text-decoration: none;
+    color: black;
+}
 
 /* homeView styles */
 
@@ -246,17 +250,24 @@ img.homeBg3{
 }
 .portrait .portraitImg{
     position: absolute;
+    width: 45vw;
+    height: 45vw;
     top: 15%;
     left: 50%;
     transform: translate(-50%, -40%) scale(.4);
+    border-radius: 50%;
 }
-
+.portrait p span{
+    font-size: 1.5em;
+    font-weight: bold;
+}
 .portrait p{
     position: absolute;
     top: 60%;
     left: 0;
     padding: 0 10%;
     text-align: justify;
+    line-height: 2;
 
 }
 
@@ -297,19 +308,32 @@ img.homeBg3{
 .projects.active{
     display: flex;
 }
-.projects div{
+.projects .projectInfo{
     width: 50%;
     height: 50%;
     /* setting flex box on divs  */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+}
+.projects .projectInfo .projectDesc{
+    width: 80%;
+    height: 30%;
 }
 
-.projects div p{
-    padding: 5% 5% 0 5%;
+.projects .projectInfo h1:hover{
+    cursor: pointer;
+    color: royalblue;
+}
+.projects .projectInfo p{
     text-align: justify;
+}
+
+.projects .projectInfo a span{
+    color: royalblue;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .projects .fa-xmark{
